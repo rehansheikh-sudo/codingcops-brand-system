@@ -7,15 +7,16 @@ Anyone at CodingCops can ask their own Claude to *"make a pitch deck in the
 CodingCops brand"* and get the right logo, colours, Satoshi type, cards, slide
 layouts and tone, without remembering the rules.
 
-> **Read-only for employees.** Only the `brand-admins` team can change this
-> repository. Generated work (decks, documents, posts) never goes in here.
+> **Public and read-only.** Anyone can view, clone and download this repository;
+> only its maintainers can change it. Generated work (decks, documents, posts)
+> never goes in here.
 
 ---
 
 ## How it fits together
 
 ```
- GitHub: codingcops-brand-system  (private · employees Read · brand-admins approve changes)
+ GitHub: codingcops-brand-system  (public · read-only for everyone · maintainers approve changes)
         │
         ├──► Claude Code ── install script links the skill into ~/.claude/skills
         │                    and installs the fonts. `git pull` keeps it current.
@@ -49,7 +50,7 @@ rule and asset exists in exactly one place.
 ### Claude Code
 
 ```bash
-git clone https://github.com/<YOUR-ORG>/codingcops-brand-system.git ~/codingcops-brand-system
+git clone https://github.com/rehansheikh-sudo/codingcops-brand-system.git ~/codingcops-brand-system
 ~/codingcops-brand-system/scripts/install-claude-code.sh      # macOS / Linux
 # Windows (PowerShell):  .\scripts\install-claude-code.ps1
 ```
