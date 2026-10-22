@@ -1,0 +1,89 @@
+/* CodingCops Design System v1.0 — CSS tokens.
+   Source of truth: guidelines/02–04. Keep in sync with brand-tokens.json.
+   Fonts load from ../assets/fonts/ (paths are relative to this file). */
+
+@font-face { font-family: "Satoshi"; font-weight: 300; font-style: normal; src: url("../assets/fonts/Satoshi-Light.otf") format("opentype"); }
+@font-face { font-family: "Satoshi"; font-weight: 300; font-style: italic; src: url("../assets/fonts/Satoshi-LightItalic.otf") format("opentype"); }
+@font-face { font-family: "Satoshi"; font-weight: 400; font-style: normal; src: url("../assets/fonts/Satoshi-Regular.otf") format("opentype"); }
+@font-face { font-family: "Satoshi"; font-weight: 400; font-style: italic; src: url("../assets/fonts/Satoshi-Italic.otf") format("opentype"); }
+@font-face { font-family: "Satoshi"; font-weight: 500; font-style: normal; src: url("../assets/fonts/Satoshi-Medium.otf") format("opentype"); }
+@font-face { font-family: "Satoshi"; font-weight: 500; font-style: italic; src: url("../assets/fonts/Satoshi-MediumItalic.otf") format("opentype"); }
+@font-face { font-family: "Satoshi"; font-weight: 700; font-style: normal; src: url("../assets/fonts/Satoshi-Bold.otf") format("opentype"); }
+@font-face { font-family: "Satoshi"; font-weight: 700; font-style: italic; src: url("../assets/fonts/Satoshi-BoldItalic.otf") format("opentype"); }
+@font-face { font-family: "Satoshi"; font-weight: 900; font-style: normal; src: url("../assets/fonts/Satoshi-Black.otf") format("opentype"); }
+@font-face { font-family: "Satoshi"; font-weight: 900; font-style: italic; src: url("../assets/fonts/Satoshi-BlackItalic.otf") format("opentype"); }
+@font-face { font-family: "Brittany Signature"; font-weight: 400; font-style: normal; src: url("../assets/fonts/BrittanySignature.ttf") format("truetype"); }
+
+:root {
+  /* Colour */
+  --cc-emerald: #01c16c;            /* the ONE action colour; prussian text on it, never white */
+  --cc-full-spectrum-blue: #0360e3; /* bands, feature cards, links, focus ring; white text on it */
+  --cc-prussian-blue: #030027;      /* all text + outlines on light; dark band */
+  --cc-platinum: #f2f7f7;           /* page ground */
+  --cc-vibrant-coral: #ee6352;      /* decorative cards, tags, highlights; never a button */
+  --cc-white: #ffffff;
+  --cc-slate: #575c6e;              /* muted helper text, captions */
+  --cc-placeholder: #6e7385;        /* input placeholder only */
+  --cc-mist-border: #c5cad3;        /* disabled borders only */
+  --cc-emerald-wash: #e3f8ee;
+  --cc-blue-wash: #e8effc;
+  --cc-newsprint: #d9d9d4;          /* social torn-paper strip only */
+  /* logo-blue #004cf8 and logo-emerald #00c26c are reference only — never use */
+
+  /* Type */
+  --cc-font-sans: "Satoshi", "Plus Jakarta Sans", system-ui, sans-serif;
+  --cc-font-accent: "Brittany Signature", cursive; /* ~3% of type, 32px+, one per view */
+
+  /* Spacing */
+  --cc-space-4: 4px;   --cc-space-8: 8px;   --cc-space-12: 12px;  --cc-space-16: 16px;
+  --cc-space-18: 18px; --cc-space-20: 20px; --cc-space-24: 24px;  --cc-space-28: 28px;
+  --cc-space-40: 40px; --cc-space-48: 48px; --cc-space-64: 64px;  --cc-space-80: 80px;
+  --cc-space-128: 128px;
+
+  /* Radius (nothing below 8px) */
+  --cc-radius-nav: 8px; --cc-radius-small: 16px; --cc-radius-card: 32px;
+  --cc-radius-card-lg: 64px; --cc-radius-pill: 99px; --cc-radius-blob: 1000px;
+
+  /* Outline (no shadows, no blurs) */
+  --cc-stroke: 1.5px;      /* controls */
+  --cc-stroke-bold: 2px;   /* cards, discs, focus */
+
+  --cc-content-max: 1200px;
+}
+
+/* Type styles */
+.cc-display      { font: 900 80px/1 var(--cc-font-sans);    letter-spacing: -2.4px;  color: var(--cc-prussian-blue); }
+.cc-heading      { font: 300 56px/1.06 var(--cc-font-sans); letter-spacing: -1.1px;  color: var(--cc-prussian-blue); }
+.cc-heading-sm   { font: 700 28px/1.1 var(--cc-font-sans);  letter-spacing: -0.5px; }
+.cc-subheading   { font: 500 24px/1.2 var(--cc-font-sans);  letter-spacing: -0.24px; }
+.cc-body-lg      { font: 400 20px/1.4 var(--cc-font-sans); }
+.cc-body         { font: 400 16px/1.5 var(--cc-font-sans); }
+.cc-label        { font: 700 16px/1.2 var(--cc-font-sans); }
+.cc-body-sm      { font: 400 14px/1.5 var(--cc-font-sans); }
+.cc-caption      { font: 500 12px/1.5 var(--cc-font-sans);  letter-spacing: 0.12px; color: var(--cc-slate); }
+.cc-signature    { font: 400 56px/1.2 var(--cc-font-accent); }
+.cc-signature-sm { font: 400 36px/1.2 var(--cc-font-accent); }
+
+/* Core shapes */
+.cc-card {
+  background: var(--cc-white);
+  border: var(--cc-stroke-bold) solid var(--cc-prussian-blue);
+  border-radius: var(--cc-radius-card);
+  padding: var(--cc-space-24);
+}
+.cc-btn {
+  font: 700 16px/1.2 var(--cc-font-sans);
+  padding: var(--cc-space-18) var(--cc-space-28);
+  border: var(--cc-stroke) solid var(--cc-prussian-blue);
+  border-radius: var(--cc-radius-pill);
+  background: transparent; color: var(--cc-prussian-blue);
+  transition: transform .15s ease;
+}
+.cc-btn--primary  { background: var(--cc-emerald); color: var(--cc-prussian-blue); } /* once per view */
+.cc-btn--inverted { background: var(--cc-white); }
+.cc-btn:hover  { transform: translateY(-2px); }
+.cc-btn:active { transform: translateY(2px); }
+.cc-btn:focus-visible, .cc-card:focus-visible {
+  outline: 2px solid var(--cc-full-spectrum-blue); outline-offset: 2px;
+  border-width: var(--cc-stroke-bold);
+}

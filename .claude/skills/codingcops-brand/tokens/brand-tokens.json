@@ -1,0 +1,114 @@
+{
+  "$source": "guidelines/02-colour.md, 03-typography.md, 04-spacing-radius-outlines.md, 05-logos.md (CodingCops Design System v1.0, October 2026). If this file and the guidelines disagree, the guidelines win; fix this file.",
+  "brand": {
+    "name": "CodingCops",
+    "design_system_version": "1.0",
+    "maintainer": "Noor (Design)"
+  },
+
+  "colors": {
+    "emerald":            { "hex": "#01C16C", "role": "The ONE action colour: primary button fills, active states, highlight cards, chart highlight, H1 rules in documents." },
+    "full-spectrum-blue": { "hex": "#0360E3", "role": "Brand band and feature colour: full-bleed bands, feature cards, links, focus ring, eyebrows on light slides." },
+    "prussian-blue":      { "hex": "#030027", "role": "All text and outlines on light grounds; dark section band; title/closing slide ground; document cover." },
+    "platinum":           { "hex": "#F2F7F7", "role": "Page background and content-slide ground. Not used for document interiors (they are white)." },
+    "vibrant-coral":      { "hex": "#EE6352", "role": "Warmth: decorative cards, tags, highlights, small labels. Never a button or CTA fill. In documents: warnings and 'action required' only." },
+    "white":              { "hex": "#FFFFFF", "role": "Cards, inputs, modals, nav; document interior pages; text on full-spectrum-blue and prussian-blue." },
+    "slate":              { "hex": "#575C6E", "role": "Muted helper text, captions, meta, KPI context lines." },
+    "placeholder":        { "hex": "#6E7385", "role": "Input placeholder text on white only." },
+    "mist-border":        { "hex": "#C5CAD3", "role": "Disabled borders, document header rule and table row rules only. Never meaningful text." },
+    "emerald-wash":       { "hex": "#E3F8EE", "role": "Banner strip and soft section washes." },
+    "blue-wash":          { "hex": "#E8EFFC", "role": "Alternate pale band; non-highlighted chart bars; document table header row." },
+    "newsprint":          { "hex": "#D9D9D4", "role": "Social only: torn-paper strip behind hiring/announcement headlines." }
+  },
+
+  "reference_only_colors": {
+    "logo-blue":    { "hex": "#004CF8", "role": "Blue inside the logo files. Never use for UI, text or shapes; use full-spectrum-blue." },
+    "logo-emerald": { "hex": "#00C26C", "role": "Emerald inside the logo files. Never use for UI, text or shapes; use emerald." }
+  },
+
+  "text_on_fill": {
+    "$note": "Allowed text colours per background. large_only = only at 24px+ (web/social at 1080/1920 canvas) — in a 13.33in PPTX that is 12pt+, in a document 18pt+.",
+    "emerald":            { "allowed": ["prussian-blue"], "forbidden": ["white"] },
+    "vibrant-coral":      { "allowed": ["prussian-blue"], "large_only": ["white"] },
+    "full-spectrum-blue": { "allowed": ["white"], "large_only": ["prussian-blue"] },
+    "prussian-blue":      { "allowed": ["white", "emerald", "vibrant-coral"] },
+    "white":              { "allowed": ["prussian-blue", "slate", "placeholder", "full-spectrum-blue"], "forbidden": ["emerald"] },
+    "platinum":           { "allowed": ["prussian-blue", "slate", "full-spectrum-blue"], "forbidden": ["emerald"] },
+    "emerald-wash":       { "allowed": ["prussian-blue"] },
+    "blue-wash":          { "allowed": ["prussian-blue"] },
+    "newsprint":          { "allowed": ["prussian-blue"] }
+  },
+
+  "chart_colors": {
+    "highlight": "emerald",
+    "rest": "blue-wash",
+    "comparison": "full-spectrum-blue",
+    "outline": "prussian-blue",
+    "annotation": "prussian-blue"
+  },
+
+  "typography": {
+    "families": {
+      "sans":   { "family": "Satoshi", "weights": [300, 400, 500, 700, 900], "italics": true, "no_weight": [600],
+                  "web_fallback": "'Satoshi', 'Plus Jakarta Sans', system-ui, sans-serif",
+                  "google_docs_standin": "Plus Jakarta Sans",
+                  "office_names": { "300": "Satoshi Light", "400": "Satoshi", "500": "Satoshi Medium", "700": "Satoshi", "900": "Satoshi Black" },
+                  "office_bold_flag_for": [700] },
+      "accent": { "family": "Brittany Signature", "weights": [400], "max_share_of_type": "about 3%", "min_px": 32,
+                  "web_fallback": "'Brittany Signature', cursive" }
+    },
+    "web_scale_px": {
+      "display":      { "family": "sans",   "size": 80, "weight": 900, "line_height": 1.0,  "tracking": -2.4 },
+      "heading":      { "family": "sans",   "size": 56, "weight": 300, "line_height": 1.06, "tracking": -1.1 },
+      "heading-sm":   { "family": "sans",   "size": 28, "weight": 700, "line_height": 1.1,  "tracking": -0.5 },
+      "subheading":   { "family": "sans",   "size": 24, "weight": 500, "line_height": 1.2,  "tracking": -0.24 },
+      "body-lg":      { "family": "sans",   "size": 20, "weight": 400, "line_height": 1.4,  "tracking": 0 },
+      "body":         { "family": "sans",   "size": 16, "weight": 400, "line_height": 1.5,  "tracking": 0 },
+      "label":        { "family": "sans",   "size": 16, "weight": 700, "line_height": 1.2,  "tracking": 0 },
+      "body-sm":      { "family": "sans",   "size": 14, "weight": 400, "line_height": 1.5,  "tracking": 0 },
+      "caption":      { "family": "sans",   "size": 12, "weight": 500, "line_height": 1.5,  "tracking": 0.12 },
+      "signature":    { "family": "accent", "size": 56, "weight": 400, "line_height": 1.2,  "tracking": 0 },
+      "signature-sm": { "family": "accent", "size": 36, "weight": 400, "line_height": 1.2,  "tracking": 0 }
+    },
+    "slides_px_at_1920": {
+      "$note": "PPTX is 13.333 x 7.5 in, so 1px at 1920 = 0.5pt. Multiply these px values by 0.5 for PowerPoint point sizes.",
+      "hero_number":   { "weight": 900, "size_min": 200, "size_max": 280 },
+      "headline":      { "weight": 700, "size_min": 72,  "size_max": 88 },
+      "section_title": { "weight": 900, "size": 140, "outlined_number_size": 400 },
+      "body":          { "weight": 400, "size_min": 28,  "size_max": 32, "never_below": 24 },
+      "eyebrow_footer":{ "weight": 500, "size_min": 18,  "size_max": 20, "caps": true, "letter_spacing_px": 1 },
+      "script_accent": { "family": "accent", "size_min": 56, "size_max": 80 }
+    },
+    "documents_pt": {
+      "cover_title":   { "weight": 900, "size_min": 40, "size_max": 48, "line_height": 1.0 },
+      "h1":            { "weight": 700, "size": 24, "rule": { "color": "emerald", "thickness_pt": 3, "space_above_pt": 12 } },
+      "h2":            { "weight": 700, "size": 15 },
+      "h3":            { "weight": 700, "size": 11.5 },
+      "body":          { "weight": 400, "size": 10.5, "line_height": 1.5, "max_chars_per_line": 75, "never_below": 9 },
+      "eyebrow":       { "weight": 500, "size": 8, "caps": true, "letter_spacing_pt": 0.5, "color": "full-spectrum-blue" },
+      "caption":       { "weight": 400, "size": 8.5, "color": "slate" },
+      "script_accent": { "family": "accent", "size_min": 22, "size_max": 32, "where": "cover and closing page only" }
+    }
+  },
+
+  "spacing_px": { "space-4": 4, "space-8": 8, "space-12": 12, "space-16": 16, "space-18": 18, "space-20": 20, "space-24": 24, "space-28": 28, "space-40": 40, "space-48": 48, "space-64": 64, "space-80": 80, "space-128": 128 },
+  "radius_px":  { "radius-nav": 8, "radius-small": 16, "radius-card": 32, "radius-card-lg": 64, "radius-pill": 99, "radius-blob": 1000, "$min": 8 },
+  "stroke_px":  { "stroke": 1.5, "stroke-bold": 2 },
+  "layout": {
+    "web":    { "content_max_width_px": 1200, "band_padding_px": [64, 80] },
+    "slides": { "canvas_px": [1920, 1080], "margin_px": 96, "columns": 12, "gutter_px": 24, "footer_breathing_px": 64 },
+    "social": { "feed_px": [1080, 1350], "story_px": [1080, 1920], "safe_margin_px": 64 },
+    "a4":     { "size_mm": [210, 297], "margin_mm": { "top": 20, "right": 20, "bottom": 25, "left": 20 }, "columns": 6, "gutter_mm": 5 }
+  },
+
+  "logos": {
+    "$dir": "assets/logos",
+    "inline-blue":  { "file": "codingcops-inline-blue.png",  "use": "Default. On white, platinum and the washes. Headers, nav, documents, letterhead." },
+    "inline-white": { "file": "codingcops-inline-white.png", "use": "On prussian-blue or photography. Title/section/closing slides, document covers." },
+    "stack-blue":   { "file": "codingcops-stack-blue.png",   "use": "Square or centred spaces on light grounds." },
+    "stack-white":  { "file": "codingcops-stack-white.png",  "use": "Square or centred spaces on dark grounds or photography." },
+    "monogram":     { "file": "codingcops-monogram.png",     "use": "Alone only where the name is already present or space is under 120px: favicons, app icons, badges, slide and document running footers/headers, social footer." },
+    "min_inline_width_px": 120,
+    "clear_space": "At least the height of the wordmark's letters on every side."
+  }
+}

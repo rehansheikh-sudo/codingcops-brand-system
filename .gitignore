@@ -1,0 +1,20 @@
+# Build output
+dist/
+
+# Never commit generated work into the brand repo
+output/
+*-output/
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+*.swp
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+*.pyc
+
+# Office lock files
+~$*

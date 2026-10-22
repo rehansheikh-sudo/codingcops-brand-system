@@ -1,0 +1,40 @@
+name: Release brand skill
+
+# Every merge to main that touches the skill builds codingcops-brand.zip and
+# publishes it as a GitHub Release, so Claude.ai users (and the org admin)
+# always have the latest approved version to upload.
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".claude/skills/codingcops-brand/**"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate and build the skill zip
+        run: |
+          python3 .claude/skills/codingcops-brand/scripts/check_brand.py --self-test
+          ./scripts/build-skill-zip.sh
+
+      - name: Publish release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          HEAD_MSG: ${{ github.event.head_commit.message }}
+        run: |
+          TAG="brand-$(date -u +%Y.%m.%d)-${GITHUB_RUN_NUMBER}"
+          {
+            echo "Built from ${GITHUB_SHA::7}: ${HEAD_MSG:-manual run}"
+            echo
+            echo "- Claude.ai: upload codingcops-brand.zip in Organization settings → Skills (admins) or Settings → Capabilities → Skills (individuals)."
+            echo "- Claude Code: run git pull in your clone; nothing to upload."
+          } > notes.md
+          gh release create "$TAG" dist/codingcops-brand.zip \
+            --title "CodingCops brand skill $TAG" --notes-file notes.md
